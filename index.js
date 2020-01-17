@@ -11,15 +11,15 @@ const fetchData = async searchTerm => {
 
   return response.data.Search;
 };
-
 const root = document.querySelector(".autocomplete");
 root.innerHTML = `
-<lable><b>Serach for a movie</b></lable>
-<input  class="input"/>
-  <div class="dropdown ">
-      <div class="dropdow-menu">
-        <div class="dropdown-content results"></div>
-      </div>
+  <label><b>Search For a Movie</b></label>
+  <input class="input" />
+  <div class="dropdown">
+    <div class="dropdown-menu">
+      <div class="dropdown-content results"></div>
+    </div>
+  </div>
 `;
 
 const input = document.querySelector("input");
@@ -42,14 +42,14 @@ const onInput = async event => {
 
     option.classList.add("dropdown-item");
     option.innerHTML = `
-    <img src="${imgSrc}" />
-     ${movie.Title}`;
+      <img src="${imgSrc}" />
+      ${movie.Title}
+    `;
 
     resultsWrapper.appendChild(option);
   }
 };
-
-input.addEventListener("input", debounce(onInput, 1000));
+input.addEventListener("input", debounce(onInput, 500));
 
 document.addEventListener("click", event => {
   if (!root.contains(event.target)) {

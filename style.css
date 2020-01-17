@@ -36,9 +36,6 @@ figure .image img {
   justify-content: space-around;
 }
 
-.dropdown-menu {
-  position: relative;
-}
 
 .dropdown-item {
   display: flex;
