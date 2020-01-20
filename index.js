@@ -12,8 +12,7 @@
 //   return response.data.Search;
 // };
 
-createAutoComplete({
-  root: document.querySelector(".autocomplete"),
+const autoCompleteCongig = {
   renderOption(movie) {
     const imgSrc = movie.Poster === "N/A" ? "" : movie.Poster;
     return `
@@ -40,6 +39,16 @@ createAutoComplete({
 
     return response.data.Search;
   }
+};
+
+createAutoComplete({
+  ...autoCompleteCongig,
+  root: document.querySelector("#left-autocomplete")
+});
+
+createAutoComplete({
+  ...autoCompleteCongig,
+  root: document.querySelector("#right-autocomplete")
 });
 
 const onMovieSelect = async movie => {
